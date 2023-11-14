@@ -1,7 +1,7 @@
 /// <reference types='Cypress' />
 
 describe("Third Test suite", () => {
-  it("Third test case", () => {
+  it("should be able to select the various forms of input", () => {
     cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
 
     cy.get("#checkBoxOption1")

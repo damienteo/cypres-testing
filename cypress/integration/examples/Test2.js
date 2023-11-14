@@ -1,7 +1,7 @@
 /// <reference types='Cypress' />
 
 describe("Second Test suite", () => {
-  it("Second test case", () => {
+  it("should be able to add to cart", () => {
     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
     cy.get(".search-keyword").type("ca");
 

@@ -1,7 +1,7 @@
 /// <reference types='Cypress' />
 
 describe("First Test suite", () => {
-  it("first test case", () => {
+  it("should have results during search", () => {
     cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/");
     cy.get(".search-keyword").type("ca");
     // cy.get(".product:visible").should("have.length", 4);
