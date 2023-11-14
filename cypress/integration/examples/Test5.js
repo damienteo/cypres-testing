@@ -17,4 +17,15 @@ describe("Fifth Test suite", () => {
       }
     });
   });
+
+  it("should ne able to navigate to top", () => {
+    cy.visit("https://rahulshettyacademy.com/AutomationPractice/");
+
+    cy.get("div.mouse-hover-content").invoke("show");
+    cy.contains("Top").click();
+    cy.url().should("include", "top");
+
+    // to get pass hover issue, will check hidden elements
+    cy.contains("Top").click({ force: true });
+  });
 });
