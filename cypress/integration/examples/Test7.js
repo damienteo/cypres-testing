@@ -14,7 +14,7 @@ describe("Seventh Test suite", () => {
     const homePage = new HomePage();
     const productPage = new ProductPage();
 
-    cy.visit("https://rahulshettyacademy.com/angularpractice/");
+    cy.visit(Cypress.env("url") + "/angularpractice/");
 
     homePage.getEditBox().type(this.data.name);
 
@@ -41,6 +41,26 @@ describe("Seventh Test suite", () => {
     });
 
     productPage.checkoutButton().click();
+
+    let sum = 0;
+    cy.get("tr td:nth-child(4) strong")
+      .each(($el, index, $list) => {
+        const text = $el.text();
+        const result = text.split(" ");
+        const value = result[1].trim();
+        sum += Number(value);
+      })
+      .then(function () {
+        cy.log({ sum });
+      });
+
+    cy.get("h3 strong").then(function (element) {
+      const amount = element.text();
+      const result = amount.split(" ");
+      const total = result[1].trim();
+      expect(sum.toString()).to.equal(total);
+    });
+
     cy.contains("Checkout").click();
     cy.get("#country").type("India");
     cy.get(".suggestions > ul > li > a").click();
