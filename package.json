@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress": "node_modules/.bin/cypress open"
+    "test": "node_modules/.bin/cypress run",
+    "headTest": "npm run test --headed",
+    "chromeTest": "npm run test --browser chrome",
+    "cypress": "node_modules/.bin/cypress open",
+    "specTest": "npm run test -- --spec"
   },
   "author": "",
   "license": "ISC",
